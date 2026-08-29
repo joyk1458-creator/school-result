@@ -7,217 +7,179 @@
 <title>জমিলা খাতুন কে,জি এন্ড হাই স্কুল</title>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700;800&display=swap');
+
 *{
     box-sizing:border-box;
-    margin:0;
-    padding:0;
 }
 
 body{
-    font-family:"Noto Sans Bengali","SolaimanLipi",Arial,sans-serif;
-    background:linear-gradient(135deg,#e0f7fa,#eef2ff);
-    min-height:100vh;
-    padding:12px;
+    margin:0;
+    font-family:"Noto Sans Bengali",sans-serif;
+    background:linear-gradient(135deg,#e8fff7,#eef4ff);
     color:#172033;
+    min-height:100vh;
 }
 
-.container{
-    width:100%;
-    max-width:720px;
-    margin:auto;
-}
-
-/* Header */
 .header{
-    background:linear-gradient(135deg,#00695c,#00897b,#00a98f);
+    background:linear-gradient(135deg,#00695c,#00897b,#00a884);
     color:white;
+    padding:35px 18px 40px;
     text-align:center;
-    padding:30px 15px;
-    border-radius:25px;
-    box-shadow:0 12px 35px rgba(0,105,92,.25);
-    margin-bottom:18px;
-}
-
-.school-icon{
-    font-size:42px;
+    border-radius:0 0 35px 35px;
+    box-shadow:0 10px 30px rgba(0,100,90,.25);
 }
 
 .header h1{
+    margin:0;
     font-size:28px;
     font-weight:800;
-    line-height:1.5;
 }
 
 .header h2{
-    font-size:18px;
-    margin-top:8px;
+    margin:8px 0 0;
+    font-size:21px;
+    font-weight:600;
 }
 
 .header p{
-    font-size:14px;
-    margin-top:5px;
+    margin:10px 0 0;
+    font-size:15px;
+    opacity:.95;
 }
 
-/* Card */
+.container{
+    width:94%;
+    max-width:720px;
+    margin:-18px auto 40px;
+}
+
 .card{
     background:white;
-    border-radius:22px;
+    border-radius:24px;
     padding:22px;
     margin-bottom:18px;
-    box-shadow:0 8px 30px rgba(15,23,42,.08);
+    box-shadow:0 8px 30px rgba(20,50,80,.10);
 }
 
-.title{
-    text-align:center;
-    color:#00695c;
-    font-size:21px;
+.card-title{
+    font-size:20px;
     font-weight:800;
-    margin-bottom:20px;
+    margin-bottom:16px;
+    color:#00695c;
 }
 
-/* Form */
 label{
     display:block;
     font-weight:700;
-    margin-bottom:7px;
+    margin:13px 0 7px;
 }
 
 select,
 input{
     width:100%;
-    height:52px;
-    border:2px solid #e2e8f0;
-    border-radius:13px;
-    padding:0 14px;
-    font-size:16px;
+    padding:14px 15px;
+    border:2px solid #e1e7ee;
+    border-radius:14px;
     font-family:inherit;
+    font-size:16px;
     outline:none;
-    margin-bottom:16px;
-    background:white;
+    background:#fff;
 }
 
 select:focus,
 input:focus{
     border-color:#00897b;
-    box-shadow:0 0 0 3px rgba(0,137,123,.12);
 }
 
-/* Button */
-.search-btn{
+button{
     width:100%;
-    height:54px;
-    border:0;
-    border-radius:14px;
-    background:linear-gradient(135deg,#00695c,#00a98f);
+    margin-top:18px;
+    padding:15px;
+    border:none;
+    border-radius:15px;
+    background:linear-gradient(135deg,#00695c,#00a884);
     color:white;
+    font-family:inherit;
     font-size:17px;
     font-weight:800;
-    font-family:inherit;
     cursor:pointer;
+    box-shadow:0 8px 18px rgba(0,137,123,.25);
 }
 
-.search-btn:active{
+button:active{
     transform:scale(.98);
 }
 
-/* Result */
-#result{
+.student-box{
     display:none;
 }
 
 .student-info{
-    background:linear-gradient(135deg,#effffb,#eef5ff);
-    border:1px solid #d7f3ed;
-    border-radius:17px;
+    background:linear-gradient(135deg,#f0fffa,#f4f8ff);
+    border-radius:18px;
     padding:17px;
-    margin-bottom:20px;
+    margin-bottom:18px;
 }
 
-.student-name{
-    text-align:center;
-    color:#00695c;
-    font-size:23px;
-    font-weight:800;
-    margin-bottom:12px;
-}
-
-.info-row{
+.student-info div{
     display:flex;
     justify-content:space-between;
     gap:10px;
-    padding:8px 0;
-    border-bottom:1px dashed #cbd5e1;
+    padding:7px 0;
+    border-bottom:1px dashed #d9e2ea;
 }
 
-.info-row:last-child{
+.student-info div:last-child{
     border-bottom:none;
 }
 
-.info-label{
-    color:#64748b;
-    font-weight:700;
-}
-
-.info-value{
-    font-weight:800;
-    text-align:right;
-}
-
-/* Table */
-.table-wrap{
+.subject-table{
     width:100%;
-    overflow-x:auto;
-}
-
-table{
-    width:100%;
-    min-width:560px;
     border-collapse:collapse;
+    overflow:hidden;
+    border-radius:15px;
 }
 
-th{
+.subject-table th{
     background:#00695c;
     color:white;
-    padding:13px 8px;
+    padding:12px 7px;
     font-size:14px;
 }
 
-td{
-    padding:12px 8px;
+.subject-table td{
+    padding:11px 6px;
+    border-bottom:1px solid #e8edf2;
     text-align:center;
-    border-bottom:1px solid #e2e8f0;
     font-size:14px;
 }
 
-td:first-child{
+.subject-table td:first-child{
     text-align:left;
     font-weight:700;
 }
 
 .grade{
-    display:inline-block;
-    min-width:45px;
+    font-weight:800;
     padding:5px 8px;
     border-radius:8px;
-    background:#dcfce7;
-    color:#15803d;
-    font-weight:800;
+    background:#e9fff6;
+    color:#00796b;
 }
 
-/* Summary */
 .summary{
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:10px;
-    margin-top:20px;
+    margin-top:18px;
 }
 
 .summary-box{
-    background:#f8fafc;
-    border:1px solid #e2e8f0;
-    border-radius:14px;
+    background:#f5f8fb;
+    border-radius:15px;
+    padding:14px 7px;
     text-align:center;
-    padding:13px 5px;
 }
 
 .summary-box small{
@@ -229,53 +191,46 @@ td:first-child{
 .summary-box strong{
     display:block;
     margin-top:4px;
-    color:#00695c;
     font-size:19px;
+    color:#00695c;
 }
 
-/* Final */
-.final-box{
+.final-result{
     margin-top:18px;
-    text-align:center;
-    padding:20px;
+    padding:18px;
     border-radius:18px;
-    background:linear-gradient(135deg,#00695c,#00a98f);
+    background:linear-gradient(135deg,#00695c,#00a884);
     color:white;
+    text-align:center;
 }
 
-.final-title{
-    font-size:15px;
-}
-
-.final-grade{
-    font-size:40px;
+.final-result .big{
+    font-size:30px;
     font-weight:800;
-    margin:5px 0;
 }
 
-.final-status{
-    font-size:17px;
-    font-weight:700;
-}
-
-/* Footer */
 .footer{
     text-align:center;
+    padding:20px;
     color:#64748b;
-    padding:15px 5px;
     font-size:13px;
 }
 
-/* Mobile */
-@media(max-width:500px){
+.error{
+    display:none;
+    background:#fff0f0;
+    color:#c62828;
+    padding:14px;
+    border-radius:14px;
+    margin-top:15px;
+    text-align:center;
+    font-weight:700;
+}
 
-    body{
-        padding:8px;
-    }
+@media(max-width:480px){
 
     .header{
-        padding:24px 12px;
-        border-radius:21px;
+        padding:28px 14px 35px;
     }
 
     .header h1{
@@ -283,37 +238,22 @@ td:first-child{
     }
 
     .header h2{
-        font-size:16px;
+        font-size:18px;
     }
 
     .card{
-        padding:16px;
-        border-radius:18px;
+        padding:17px;
+        border-radius:20px;
+    }
+
+    .subject-table th,
+    .subject-table td{
+        font-size:12px;
+        padding:9px 4px;
     }
 
     .summary-box strong{
-        font-size:16px;
-    }
-}
-
-/* Print */
-@media print{
-
-    body{
-        background:white;
-    }
-
-    .search-card,
-    .footer{
-        display:none;
-    }
-
-    #result{
-        display:block !important;
-    }
-
-    .card{
-        box-shadow:none;
+        font-size:17px;
     }
 }
 </style>
@@ -321,166 +261,87 @@ td:first-child{
 
 <body>
 
+<div class="header">
+    <h1>জমিলা খাতুন কে,জি এন্ড হাই স্কুল</h1>
+    <h2>দ্বিতীয় সাময়িক পরীক্ষা</h2>
+    <p>শিক্ষার্থীর ফলাফল দেখুন</p>
+</div>
+
 <div class="container">
 
-    <!-- HEADER -->
-    <div class="header">
+    <div class="card">
 
-        <div class="school-icon">🏫</div>
+        <div class="card-title">🔎 ফলাফল খুঁজুন</div>
 
-        <h1>
-            জমিলা খাতুন কে,জি এন্ড হাই স্কুল
-        </h1>
-
-        <h2>
-            শিক্ষার্থী ফলাফল পোর্টাল
-        </h2>
-
-        <p>
-            দ্বিতীয় সাময়িক পরীক্ষা
-        </p>
-
-        <p>
-            শিক্ষাবর্ষ ২০২৬
-        </p>
-
-    </div>
-
-
-    <!-- SEARCH -->
-    <div class="card search-card">
-
-        <div class="title">
-            🔎 ফলাফল খুঁজুন
-        </div>
-
-        <label>
-            শ্রেণী নির্বাচন করুন
-        </label>
+        <label>শ্রেণী নির্বাচন করুন</label>
 
         <select id="classSelect">
-
-            <option value="">
-                -- শ্রেণী নির্বাচন করুন --
-            </option>
-
-            <option value="১ম">
-                প্রথম শ্রেণি
-            </option>
-
-            <option value="২য়">
-                দ্বিতীয় শ্রেণি
-            </option>
-
-            <option value="৩য়">
-                তৃতীয় শ্রেণি
-            </option>
-
-            <option value="৪র্থ">
-                চতুর্থ শ্রেণি
-            </option>
-
-            <option value="৫ম">
-                পঞ্চম শ্রেণি
-            </option>
-
+            <option value="">-- শ্রেণী নির্বাচন করুন --</option>
+            <option value="1">প্রথম শ্রেণি</option>
+            <option value="2">দ্বিতীয় শ্রেণি</option>
+            <option value="3">তৃতীয় শ্রেণি</option>
+            <option value="4">চতুর্থ শ্রেণি</option>
+            <option value="5">পঞ্চম শ্রেণি</option>
         </select>
 
-
-        <label>
-            রোল নাম্বার
-        </label>
+        <label>রোল নম্বর</label>
 
         <input
             type="number"
             id="rollInput"
-            placeholder="রোল নাম্বার লিখুন"
+            placeholder="রোল নম্বর লিখুন"
             min="1"
         >
 
-
-        <button
-            class="search-btn"
-            onclick="showResult()"
-        >
-            🔍 ফলাফল দেখুন
+        <button onclick="showResult()">
+            ফলাফল দেখুন
         </button>
+
+        <div class="error" id="error">
+            সঠিক শ্রেণী ও রোল নম্বর দিন।
+        </div>
 
     </div>
 
 
-    <!-- RESULT -->
-    <div class="card" id="result">
+    <div class="card student-box" id="studentBox">
 
-        <div class="title">
-            🏆 পরীক্ষার ফলাফল
-        </div>
-
+        <div class="card-title">📋 শিক্ষার্থীর ফলাফল</div>
 
         <div class="student-info">
 
-            <div class="student-name" id="studentName">
-                -
+            <div>
+                <span>শিক্ষার্থীর নাম</span>
+                <strong id="studentName"></strong>
             </div>
 
-
-            <div class="info-row">
-
-                <span class="info-label">
-                    শ্রেণী
-                </span>
-
-                <span class="info-value" id="studentClass">
-                    -
-                </span>
-
+            <div>
+                <span>শ্রেণী</span>
+                <strong id="studentClass"></strong>
             </div>
 
-
-            <div class="info-row">
-
-                <span class="info-label">
-                    রোল নাম্বার
-                </span>
-
-                <span class="info-value" id="studentRoll">
-                    -
-                </span>
-
-            </div>
-
-
-            <div class="info-row">
-
-                <span class="info-label">
-                    পরীক্ষা
-                </span>
-
-                <span class="info-value">
-                    দ্বিতীয় সাময়িক
-                </span>
-
+            <div>
+                <span>রোল নম্বর</span>
+                <strong id="studentRoll"></strong>
             </div>
 
         </div>
 
 
-        <div class="table-wrap">
+        <div style="overflow-x:auto;">
 
-            <table>
+            <table class="subject-table">
 
                 <thead>
-
                     <tr>
                         <th>বিষয়</th>
-                        <th>প্রাপ্ত নম্বর</th>
+                        <th>পূর্ণমান</th>
+                        <th>প্রাপ্ত</th>
                         <th>গ্রেড</th>
-                        <th>GPA</th>
                     </tr>
-
                 </thead>
 
-                <tbody id="resultTable"></tbody>
+                <tbody id="resultBody"></tbody>
 
             </table>
 
@@ -495,79 +356,77 @@ td:first-child{
             </div>
 
             <div class="summary-box">
-                <small>গড় নম্বর</small>
-                <strong id="averageMarks">0</strong>
+                <small>গড়</small>
+                <strong id="average">0</strong>
             </div>
 
             <div class="summary-box">
-                <small>মোট বিষয়</small>
-                <strong id="totalSubjects">0</strong>
+                <small>GPA</small>
+                <strong id="gpa">0</strong>
             </div>
 
         </div>
 
 
-        <div class="final-box">
+        <div class="final-result">
 
-            <div class="final-title">
-                সামগ্রিক গ্রেড
+            <div>চূড়ান্ত ফলাফল</div>
+
+            <div class="big" id="finalGrade">
+                A+
             </div>
 
-            <div class="final-grade" id="finalGrade">
-                -
-            </div>
-
-            <div class="final-status" id="finalStatus">
-                -
+            <div id="finalText">
+                অভিনন্দন!
             </div>
 
         </div>
 
-    </div>
-
-
-    <div class="footer">
-        © ২০২৬ জমিলা খাতুন কে,জি এন্ড হাই স্কুল
     </div>
 
 </div>
 
 
+<div class="footer">
+    © 2026 জমিলা খাতুন কে,জি এন্ড হাই স্কুল
+</div>
+
+
 <script>
 
-/* =================================
-   শিক্ষার্থীর তথ্য
-================================= */
+/* ================================
+   শিক্ষার্থীদের তথ্য
+   ================================ */
 
 const students = {
 
-    "২য়-1": {
+    "2-1": {
 
-        name:"আলিফা আক্তার",
+        name: "আলিফা আক্তার",
 
-        className:"দ্বিতীয় শ্রেণি",
+        className: "দ্বিতীয় শ্রেণি",
 
-        roll:"১",
+        roll: "১",
 
-        subjects:[
+        subjects: [
 
-            ["বাংলা",99],
+            ["বাংলা", 100, 99],
 
-            ["ব্যাকরণ",99],
+            ["ব্যাকরণ", 100, 99],
 
-            ["ইংরেজি",99],
+            ["ইংরেজি", 100, 99],
 
-            ["গ্রামার",99],
+            ["গ্রামার", 100, 99],
 
-            ["গণিত",99],
+            ["গণিত", 100, 99],
 
-            ["পরিবেশ পরিচিতি",99],
+            ["পরিবেশ পরিচিতি", 100, 99],
 
-            ["সাধারণ জ্ঞান",49],
+            ["সাধারণ জ্ঞান", 50, 49],
 
-            ["ইসলাম শিক্ষা",99],
+            ["ইসলাম শিক্ষা", 100, 99],
 
-            ["ওয়ার্ড বুক",49]
+            ["ওয়ার্ড বুক", 50, 49]
 
         ]
 
@@ -576,230 +435,287 @@ const students = {
 };
 
 
-/* =================================
-   গ্রেড সিস্টেম
-================================= */
+/* ================================
+   গ্রেড নির্ধারণ
+   ৪৯ = A+
+   ================================ */
 
-function getGrade(mark){
+function getGrade(mark, fullMark){
 
-    if(mark >= 80){
-        return {
-            grade:"A+",
-            point:5.00
-        };
+    const percentage = (mark / fullMark) * 100;
+
+    /*
+       বিশেষ নিয়ম:
+       ৪৯ নম্বর = A+
+    */
+
+    if(mark === 49){
+        return "A+";
     }
 
-    if(mark >= 70){
-        return {
-            grade:"A",
-            point:4.00
-        };
+    if(percentage >= 80){
+        return "A+";
     }
 
-    if(mark >= 60){
-        return {
-            grade:"A-",
-            point:3.50
-        };
+    if(percentage >= 75){
+        return "A";
     }
 
-    if(mark >= 50){
-        return {
-            grade:"B",
-            point:3.00
-        };
+    if(percentage >= 70){
+        return "A-";
     }
 
-    if(mark >= 40){
-        return {
-            grade:"C",
-            point:2.00
-        };
+    if(percentage >= 65){
+        return "B+";
     }
 
-    if(mark >= 33){
-        return {
-            grade:"D",
-            point:1.00
-        };
+    if(percentage >= 60){
+        return "B";
     }
 
-    return {
-        grade:"F",
-        point:0.00
-    };
+    if(percentage >= 55){
+        return "B-";
+    }
+
+    if(percentage >= 50){
+        return "C+";
+    }
+
+    if(percentage >= 45){
+        return "C";
+    }
+
+    if(percentage >= 40){
+        return "D";
+    }
+
+    return "F";
 }
 
 
-/* =================================
+/* ================================
+   GPA
+   ================================ */
+
+function getPoint(grade){
+
+    const points = {
+
+        "A+":5.00,
+        "A":4.00,
+        "A-":3.70,
+        "B+":3.30,
+        "B":3.00,
+        "B-":2.70,
+        "C+":2.30,
+        "C":2.00,
+        "D":1.00,
+        "F":0.00
+
+    };
+
+    return points[grade] ?? 0;
+}
+
+
+/* ================================
    ফলাফল দেখানো
-================================= */
+   ================================ */
 
 function showResult(){
 
-    const className =
+    const classValue =
         document.getElementById("classSelect").value;
 
     const roll =
-        document.getElementById("rollInput").value.trim();
+        document.getElementById("rollInput").value;
 
+    const error =
+        document.getElementById("error");
 
-    if(className === ""){
+    const studentBox =
+        document.getElementById("studentBox");
 
-        alert("দয়া করে শ্রেণী নির্বাচন করুন।");
+    if(!classValue || !roll){
+
+        error.style.display = "block";
+        studentBox.style.display = "none";
+
         return;
-
     }
 
+    const key = classValue + "-" + roll;
 
-    if(roll === ""){
-
-        alert("দয়া করে রোল নাম্বার লিখুন।");
-        return;
-
-    }
-
-
-    const key =
-        className + "-" + roll;
-
-
-    const student =
-        students[key];
-
+    const student = students[key];
 
     if(!student){
 
-        document.getElementById("result")
-            .style.display="none";
+        error.innerHTML =
+        "এই শ্রেণি ও রোলের কোনো ফলাফল পাওয়া যায়নি।";
 
-        alert(
-            "এই শ্রেণী ও রোলের কোনো শিক্ষার্থীর তথ্য পাওয়া যায়নি।"
-        );
+        error.style.display = "block";
+        studentBox.style.display = "none";
 
         return;
     }
 
-
-    /* Student Information */
-
-    document.getElementById("studentName")
-        .innerText=student.name;
-
-    document.getElementById("studentClass")
-        .innerText=student.className;
-
-    document.getElementById("studentRoll")
-        .innerText=student.roll;
+    error.style.display = "none";
+    studentBox.style.display = "block";
 
 
-    /* Table */
+    document.getElementById("studentName").innerText =
+        student.name;
 
-    const table =
-        document.getElementById("resultTable");
+    document.getElementById("studentClass").innerText =
+        student.className;
 
-    table.innerHTML="";
-
-
-    let total=0;
-
-    let totalPoint=0;
-
-    let failed=false;
+    document.getElementById("studentRoll").innerText =
+        student.roll;
 
 
-    student.subjects.forEach(function(subject){
+    const tbody =
+        document.getElementById("resultBody");
 
-        const subjectName=subject[0];
+    tbody.innerHTML = "";
 
-        const mark=subject[1];
 
-        const gradeInfo=getGrade(mark);
+    let total = 0;
+    let totalFull = 0;
+    let totalPoint = 0;
+    let hasFail = false;
 
+
+    student.subjects.forEach(subject => {
+
+        const name = subject[0];
+        const full = subject[1];
+        const mark = subject[2];
+
+        const grade =
+            getGrade(mark, full);
+
+        const point =
+            getPoint(grade);
 
         total += mark;
+        totalFull += full;
+        totalPoint += point;
 
-        totalPoint += gradeInfo.point;
-
-
-        if(gradeInfo.grade==="F"){
-            failed=true;
+        if(grade === "F"){
+            hasFail = true;
         }
 
 
-        const row=document.createElement("tr");
+        const tr =
+            document.createElement("tr");
 
+        tr.innerHTML = `
 
-        row.innerHTML=`
+            <td>${name}</td>
 
-            <td>
-                ${subjectName}
-            </td>
+            <td>${full}</td>
 
-            <td>
-                <strong>${mark}</strong>
-            </td>
+            <td><strong>${mark}</strong></td>
 
             <td>
                 <span class="grade">
-                    ${gradeInfo.grade}
+                    ${grade}
                 </span>
-            </td>
-
-            <td>
-                ${gradeInfo.point.toFixed(2)}
             </td>
 
         `;
 
-
-        table.appendChild(row);
+        tbody.appendChild(tr);
 
     });
 
 
-    const subjectCount =
-        student.subjects.length;
-
-
     const average =
-        total / subjectCount;
+        (total / totalFull) * 100;
+
+    let gpa =
+        totalPoint / student.subjects.length;
+
+    gpa =
+        Math.min(5, gpa).toFixed(2);
 
 
-    const finalGpa =
-        totalPoint / subjectCount;
+    document.getElementById("totalMarks").innerText =
+        total + " / " + totalFull;
+
+    document.getElementById("average").innerText =
+        average.toFixed(2) + "%";
+
+    document.getElementById("gpa").innerText =
+        gpa;
 
 
-    document.getElementById("totalMarks")
-        .innerText=total;
+    /*
+       চূড়ান্ত গ্রেড
+    */
+
+    let finalGrade;
+
+    if(hasFail){
+
+        finalGrade = "F";
+
+    }else if(average >= 80){
+
+        finalGrade = "A+";
+
+    }else if(average >= 75){
+
+        finalGrade = "A";
+
+    }else if(average >= 70){
+
+        finalGrade = "A-";
+
+    }else if(average >= 65){
+
+        finalGrade = "B+";
+
+    }else if(average >= 60){
+
+        finalGrade = "B";
+
+    }else if(average >= 55){
+
+        finalGrade = "B-";
+
+    }else if(average >= 50){
+
+        finalGrade = "C+";
+
+    }else if(average >= 45){
+
+        finalGrade = "C";
+
+    }else if(average >= 40){
+
+        finalGrade = "D";
+
+    }else{
+
+        finalGrade = "F";
+
+    }
 
 
-    document.getElementById("averageMarks")
-        .innerText=average.toFixed(2);
+    document.getElementById("finalGrade").innerText =
+        finalGrade;
 
 
-    document.getElementById("totalSubjects")
-        .innerText=subjectCount;
+    document.getElementById("finalText").innerText =
+        finalGrade === "F"
+        ? "দুঃখিত, আবার চেষ্টা করুন।"
+        : "অভিনন্দন! আপনার ফলাফল খুব ভালো।";
 
 
-    document.getElementById("finalGrade")
-        .innerText=failed ? "F" : "A+";
-
-
-    document.getElementById("finalStatus")
-        .innerText=failed
-            ? "❌ অকৃতকার্য"
-            : "🎉 উত্তীর্ণ";
-
-
-    document.getElementById("result")
-        .style.display="block";
-
-
-    document.getElementById("result")
-        .scrollIntoView({
-            behavior:"smooth"
-        });
+    studentBox.scrollIntoView({
+        behavior:"smooth"
+    });
 
 }
 
