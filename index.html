@@ -1,21 +1,193 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>বিদ্যালয় রেজাল্ট পোর্টাল</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px #ccc;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+h2 {
+    text-align: center;
+}
+
+select, input, button {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+button {
+    background: #198754;
+    color: white;
+    border: none;
+    border-radius: 6px;
+}
+
+.result {
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th, td {
+    border: 1px solid #999;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background: #eee;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>জমিলা খাতুন কে,জি<br>এন্ড হাই স্কুল</h1>
+
+<h2>দ্বিতীয় সাময়িক পরীক্ষা</h2>
+
+<p><b>শিক্ষাবর্ষ:</b> ২০২৬</p>
+
+<label>শ্রেণী নির্বাচন করুন:</label>
+
+<select id="class">
+    <option value="">শ্রেণী নির্বাচন করুন</option>
+    <option>প্রথম</option>
+    <option>দ্বিতীয়</option>
+    <option>তৃতীয়</option>
+    <option>চতুর্থ</option>
+    <option>পঞ্চম</option>
+</select>
+
+<label>রোল নাম্বার:</label>
+
+<input type="number" id="roll" placeholder="রোল নাম্বার লিখুন">
+
+<button onclick="showResult()">ফলাফল দেখুন</button>
+
+<div id="result" class="result"></div>
+
+</div>
+
+<script>
+
 const students = {
 
-  "দ্বিতীয় শ্রেণী-1": {
-    name: "আলিফা আক্তার",
-    class: "দ্বিতীয় শ্রেণী",
-    roll: "১",
+"দ্বিতীয়-1": {
+name: "আলিফা আক্তার",
+class: "দ্বিতীয়",
+roll: "১",
 
-    subjects: [
-      ["বাংলা", 100, 99],
-      ["ব্যাকরণ", 100, 99],
-      ["ইংরেজি", 100, 99],
-      ["গ্রামার", 100, 99],
-      ["গণিত", 100, 99],
-      ["পরিবেশ পরিচিতি", 100, 99],
-      ["সাধারণ জ্ঞান", 50, 49],
-      ["ইসলাম শিক্ষা", 100, 99],
-      ["ওয়ার্ড বুক", 50, 49]
-    ]
-  }
+subjects: [
+["বাংলা", 99],
+["ব্যাকরণ", 99],
+["ইংরেজি", 99],
+["গ্রামার", 99],
+["গণিত", 99],
+["পরিবেশ পরিচিতি", 99],
+["সাধারণ জ্ঞান", 49],
+["ইসলাম শিক্ষা", 99],
+["ওয়ার্ড বুক", 49]
+]
+}
 
 };
+
+function showResult() {
+
+let selectedClass = document.getElementById("class").value;
+let roll = document.getElementById("roll").value;
+
+let key = selectedClass + "-" + roll;
+
+let student = students[key];
+
+if (!student) {
+
+document.getElementById("result").innerHTML =
+"<p style='color:red;'>এই শ্রেণী ও রোলের কোনো ফলাফল পাওয়া যায়নি।</p>";
+
+return;
+}
+
+let total = 0;
+
+let rows = "";
+
+student.subjects.forEach(function(subject) {
+
+total += subject[1];
+
+rows += `
+<tr>
+<td>${subject[0]}</td>
+<td>${subject[1]}</td>
+</tr>
+`;
+
+});
+
+document.getElementById("result").innerHTML = `
+
+<h2>ফলাফল</h2>
+
+<p><b>শিক্ষার্থীর নাম:</b> ${student.name}</p>
+
+<p><b>শ্রেণী:</b> ${student.class}</p>
+
+<p><b>রোল নাম্বার:</b> ${student.roll}</p>
+
+<table>
+
+<tr>
+<th>বিষয়</th>
+<th>প্রাপ্ত নম্বর</th>
+</tr>
+
+${rows}
+
+<tr>
+<th>মোট নম্বর</th>
+<th>${total}</th>
+</tr>
+
+</table>
+
+`;
+
+}
+
+</script>
+
+</body>
+</html>
