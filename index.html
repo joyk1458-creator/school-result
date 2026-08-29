@@ -4,110 +4,81 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>বিদ্যালয় রেজাল্ট পোর্টাল</title>
+<title>SSC Result Calculator</title>
 
 <style>
 *{
     box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
 body{
-    margin:0;
-    font-family:"Noto Sans Bengali","Arial",sans-serif;
-    background:linear-gradient(135deg,#eef2ff,#f0fdf4);
-    color:#172033;
-}
-
-.header{
-    background:linear-gradient(135deg,#312e81,#2563eb);
-    color:white;
-    text-align:center;
-    padding:35px 15px;
-    border-radius:0 0 35px 35px;
-    box-shadow:0 10px 30px rgba(37,99,235,.25);
-}
-
-.header h1{
-    margin:0;
-    font-size:30px;
-    font-weight:800;
-}
-
-.header p{
-    margin:8px 0 0;
-    font-size:17px;
-    opacity:.95;
+    font-family:Arial, "Noto Sans Bengali", sans-serif;
+    background:linear-gradient(135deg,#e8f5e9,#e3f2fd);
+    color:#222;
+    min-height:100vh;
+    padding:20px 12px;
 }
 
 .container{
-    max-width:700px;
-    margin:30px auto;
-    padding:0 15px;
+    max-width:850px;
+    margin:auto;
+}
+
+.header{
+    background:linear-gradient(135deg,#00695c,#00897b);
+    color:white;
+    padding:25px 18px;
+    border-radius:18px;
+    text-align:center;
+    box-shadow:0 8px 25px rgba(0,0,0,.15);
+    margin-bottom:18px;
+}
+
+.header h1{
+    font-size:28px;
+    margin-bottom:7px;
+}
+
+.header p{
+    font-size:14px;
+    opacity:.9;
 }
 
 .card{
     background:white;
-    padding:25px;
-    border-radius:22px;
-    box-shadow:0 10px 35px rgba(15,23,42,.10);
-    margin-bottom:20px;
-}
-
-.card h2{
-    margin-top:0;
-    color:#1e3a8a;
-    text-align:center;
-}
-
-label{
-    display:block;
-    margin-top:15px;
-    margin-bottom:7px;
-    font-weight:700;
-}
-
-select,input,button{
-    width:100%;
-    padding:14px;
-    border-radius:12px;
-    border:1px solid #d1d5db;
-    font-size:16px;
-    outline:none;
-}
-
-select:focus,input:focus{
-    border-color:#2563eb;
-    box-shadow:0 0 0 3px rgba(37,99,235,.12);
-}
-
-button{
-    margin-top:20px;
-    border:none;
-    background:linear-gradient(135deg,#2563eb,#4f46e5);
-    color:white;
-    font-weight:800;
-    cursor:pointer;
-    box-shadow:0 8px 20px rgba(37,99,235,.25);
-}
-
-button:active{
-    transform:scale(.98);
-}
-
-.result{
-    display:none;
-}
-
-.student-box{
-    background:linear-gradient(135deg,#eff6ff,#eef2ff);
-    border-radius:16px;
+    border-radius:18px;
     padding:18px;
-    margin-bottom:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+    margin-bottom:18px;
 }
 
-.student-box p{
-    margin:8px 0;
-    font-size:17px;
+.student-info{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+}
+
+.input-group label{
+    display:block;
+    font-weight:bold;
+    margin-bottom:6px;
+    font-size:14px;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    outline:none;
+    font-size:15px;
+}
+
+input:focus{
+    border-color:#00897b;
+    box-shadow:0 0 0 2px rgba(0,137,123,.1);
 }
 
 .table-wrap{
@@ -117,56 +88,89 @@ button:active{
 table{
     width:100%;
     border-collapse:collapse;
-    margin-top:15px;
-    min-width:480px;
+    min-width:600px;
 }
 
 th{
-    background:#1e3a8a;
+    background:#00695c;
     color:white;
-    padding:12px;
+    padding:12px 8px;
+    font-size:14px;
 }
 
 td{
-    padding:11px;
-    border-bottom:1px solid #e5e7eb;
+    padding:9px 7px;
+    border-bottom:1px solid #eee;
     text-align:center;
 }
 
 td:first-child{
     text-align:left;
+    font-weight:bold;
+}
+
+.marks-input{
+    width:80px;
+    text-align:center;
+    padding:9px;
 }
 
 .grade{
-    font-weight:900;
+    font-weight:bold;
+    font-size:16px;
 }
 
-.grade-aplus{
-    color:#15803d;
+.grade-ap{
+    color:#087f23;
 }
 
 .grade-a{
-    color:#2563eb;
+    color:#16803c;
 }
 
-.grade-aminus{
-    color:#7c3aed;
+.grade-am{
+    color:#3f7d20;
 }
 
 .grade-b{
-    color:#d97706;
+    color:#1976d2;
 }
 
 .grade-c{
-    color:#ea580c;
+    color:#8e24aa;
 }
 
 .grade-d{
-    color:#dc2626;
+    color:#ef6c00;
 }
 
 .grade-f{
-    color:#991b1b;
+    color:#d32f2f;
+}
+
+button{
+    width:100%;
+    border:none;
+    border-radius:12px;
+    padding:14px;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+    margin-top:15px;
+}
+
+.calculate{
+    background:linear-gradient(135deg,#00695c,#00897b);
+    color:white;
+}
+
+.calculate:active{
+    transform:scale(.98);
+}
+
+.reset{
+    background:#eeeeee;
+    color:#444;
 }
 
 .summary{
@@ -177,7 +181,7 @@ td:first-child{
 }
 
 .summary div{
-    background:#f8fafc;
+    background:#f8faf8;
     border-radius:15px;
     padding:15px;
     text-align:center;
@@ -199,17 +203,22 @@ td:first-child{
     background:linear-gradient(135deg,#dcfce7,#dbeafe);
 }
 
+.final-grade h2{
+    margin-bottom:8px;
+}
+
 .final-grade span{
-    font-size:35px;
+    font-size:38px;
     font-weight:900;
     color:#15803d;
 }
 
-.footer{
-    text-align:center;
-    padding:25px;
-    color:#64748b;
-    font-size:14px;
+.pass{
+    color:#15803d !important;
+}
+
+.fail{
+    color:#dc2626 !important;
 }
 
 .error{
@@ -222,4 +231,517 @@ td:first-child{
     text-align:center;
 }
 
-@media(max-width
+.footer{
+    text-align:center;
+    padding:25px;
+    color:#64748b;
+    font-size:14px;
+}
+
+@media(max-width:600px){
+
+    body{
+        padding:12px 8px;
+    }
+
+    .header h1{
+        font-size:23px;
+    }
+
+    .student-info{
+        grid-template-columns:1fr;
+    }
+
+    .summary{
+        grid-template-columns:1fr;
+    }
+
+    .card{
+        padding:12px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>📊 SSC Result Calculator</h1>
+        <p>মার্ক লিখুন এবং আপনার Grade ও GPA দেখুন</p>
+    </div>
+
+    <div class="card">
+
+        <div class="student-info">
+
+            <div class="input-group">
+                <label>শিক্ষার্থীর নাম</label>
+                <input type="text" id="studentName" placeholder="নাম লিখুন">
+            </div>
+
+            <div class="input-group">
+                <label>রোল নম্বর</label>
+                <input type="text" id="roll" placeholder="রোল নম্বর">
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="card">
+
+        <div class="table-wrap">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>বিষয়</th>
+                        <th>পূর্ণমান</th>
+                        <th>প্রাপ্ত মার্ক</th>
+                        <th>Grade</th>
+                        <th>Grade Point</th>
+                    </tr>
+                </thead>
+
+                <tbody id="subjectTable">
+
+                    <tr>
+                        <td>বাংলা</td>
+                        <td>100</td>
+                        <td>
+                            <input class="marks-input" type="number"
+                            min="0" max="100" data-index="0"
+                            placeholder="0">
+                        </td>
+                        <td class="grade" id="grade0">-</td>
+                        <td id="point0">-</td>
+                    </tr>
+
+                    <tr>
+                        <td>ইংরেজি</td>
+                        <td>100</td>
+                        <td>
+                            <input class="marks-input" type="number"
+                            min="0" max="100" data-index="1"
+                            placeholder="0">
+                        </td>
+                        <td class="grade" id="grade1">-</td>
+                        <td id="point1">-</td>
+                    </tr>
+
+                    <tr>
+                        <td>গণিত</td>
+                        <td>100</td>
+                        <td>
+                            <input class="marks-input" type="number"
+                            min="0" max="100" data-index="2"
+                            placeholder="0">
+                        </td>
+                        <td class="grade" id="grade2">-</td>
+                        <td id="point2">-</td>
+                    </tr>
+
+                    <tr>
+                        <td>বিজ্ঞান</td>
+                        <td>100</td>
+                        <td>
+                            <input class="marks-input" type="number"
+                            min="0" max="100" data-index="3"
+                            placeholder="0">
+                        </td>
+                        <td class="grade" id="grade3">-</td>
+                        <td id="point3">-</td>
+                    </tr>
+
+                    <tr>
+                        <td>বাংলাদেশ ও বিশ্বপরিচয়</td>
+                        <td>100</td>
+                        <td>
+                            <input class="marks-input" type="number"
+                            min="0" max="100" data-index="4"
+                            placeholder="0">
+                        </td>
+                        <td class="grade" id="grade4">-</td>
+                        <td id="point4">-</td>
+                    </tr>
+
+                    <tr>
+                        <td>ধর্ম ও নৈতিক শিক্ষা</td>
+                        <td>100</td>
+                        <td>
+                            <input class="marks-input" type="number"
+                            min="0" max="100" data-index="5"
+                            placeholder="0">
+                        </td>
+                        <td class="grade" id="grade5">-</td>
+                        <td id="point5">-</td>
+                    </tr>
+
+                    <tr>
+                        <td>আইসিটি</td>
+                        <td>100</td>
+                        <td>
+                            <input class="marks-input" type="number"
+                            min="0" max="100" data-index="6"
+                            placeholder="0">
+                        </td>
+                        <td class="grade" id="grade6">-</td>
+                        <td id="point6">-</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <div id="error" class="error">
+            ❌ অনুগ্রহ করে প্রতিটি বিষয়ে সঠিক মার্ক দিন।
+        </div>
+
+        <button class="calculate" onclick="calculateResult()">
+            🧮 ফলাফল দেখুন
+        </button>
+
+        <button class="reset" onclick="resetResult()">
+            🔄 Reset
+        </button>
+
+    </div>
+
+
+    <div class="card">
+
+        <div class="summary">
+
+            <div>
+                মোট মার্ক
+                <strong id="totalMarks">0</strong>
+            </div>
+
+            <div>
+                গড় মার্ক
+                <strong id="average">0</strong>
+            </div>
+
+            <div>
+                GPA
+                <strong id="gpa">0.00</strong>
+            </div>
+
+        </div>
+
+
+        <div class="final-grade">
+
+            <h2>Final Result</h2>
+
+            <span id="finalGrade">-</span>
+
+            <h3 id="resultStatus"></h3>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer">
+        © 2026 SSC Result Calculator
+    </div>
+
+</div>
+
+
+<script>
+
+const subjects = [
+    "বাংলা",
+    "ইংরেজি",
+    "গণিত",
+    "বিজ্ঞান",
+    "বাংলাদেশ ও বিশ্বপরিচয়",
+    "ধর্ম ও নৈতিক শিক্ষা",
+    "আইসিটি"
+];
+
+
+// Grade calculation
+function getGrade(mark){
+
+    if(mark >= 80){
+        return {
+            grade:"A+",
+            point:5.00,
+            class:"grade-ap"
+        };
+    }
+
+    if(mark >= 70){
+        return {
+            grade:"A",
+            point:4.00,
+            class:"grade-a"
+        };
+    }
+
+    if(mark >= 60){
+        return {
+            grade:"A-",
+            point:3.50,
+            class:"grade-am"
+        };
+    }
+
+    if(mark >= 50){
+        return {
+            grade:"B",
+            point:3.00,
+            class:"grade-b"
+        };
+    }
+
+    if(mark >= 40){
+        return {
+            grade:"C",
+            point:2.00,
+            class:"grade-c"
+        };
+    }
+
+    if(mark >= 33){
+        return {
+            grade:"D",
+            point:1.00,
+            class:"grade-d"
+        };
+    }
+
+    return {
+        grade:"F",
+        point:0.00,
+        class:"grade-f"
+    };
+}
+
+
+// Calculate result
+function calculateResult(){
+
+    const inputs =
+        document.querySelectorAll(".marks-input");
+
+    let total = 0;
+    let totalPoint = 0;
+    let fail = false;
+    let valid = true;
+
+    inputs.forEach((input,index)=>{
+
+        const value = Number(input.value);
+
+        if(
+            input.value === "" ||
+            value < 0 ||
+            value > 100
+        ){
+            valid = false;
+            return;
+        }
+
+        total += value;
+
+        const result = getGrade(value);
+
+        totalPoint += result.point;
+
+        const gradeElement =
+            document.getElementById("grade"+index);
+
+        const pointElement =
+            document.getElementById("point"+index);
+
+        gradeElement.textContent =
+            result.grade;
+
+        gradeElement.className =
+            "grade " + result.class;
+
+        pointElement.textContent =
+            result.point.toFixed(2);
+
+        if(result.grade === "F"){
+            fail = true;
+        }
+
+    });
+
+
+    if(!valid){
+
+        document.getElementById("error").style.display =
+            "block";
+
+        return;
+    }
+
+
+    document.getElementById("error").style.display =
+        "none";
+
+
+    const average =
+        total / inputs.length;
+
+    let gpa =
+        totalPoint / inputs.length;
+
+
+    // Maximum GPA 5
+    if(gpa > 5){
+        gpa = 5;
+    }
+
+
+    document.getElementById("totalMarks").textContent =
+        total;
+
+    document.getElementById("average").textContent =
+        average.toFixed(2);
+
+    document.getElementById("gpa").textContent =
+        gpa.toFixed(2);
+
+
+    const finalGrade =
+        document.getElementById("finalGrade");
+
+    const status =
+        document.getElementById("resultStatus");
+
+
+    if(fail){
+
+        finalGrade.textContent = "F";
+
+        finalGrade.className = "fail";
+
+        status.textContent =
+            "❌ অকৃতকার্য";
+
+        status.className = "fail";
+
+    }else{
+
+        let final;
+
+        if(gpa >= 5){
+            final = "A+";
+        }
+        else if(gpa >= 4){
+            final = "A";
+        }
+        else if(gpa >= 3.5){
+            final = "A-";
+        }
+        else if(gpa >= 3){
+            final = "B";
+        }
+        else if(gpa >= 2){
+            final = "C";
+        }
+        else{
+            final = "D";
+        }
+
+        finalGrade.textContent = final;
+
+        finalGrade.className = "pass";
+
+        status.textContent =
+            "✅ অভিনন্দন! আপনি পাস করেছেন।";
+
+        status.className = "pass";
+
+    }
+
+}
+
+
+// Reset
+function resetResult(){
+
+    document
+        .querySelectorAll(".marks-input")
+        .forEach(input=>{
+            input.value = "";
+        });
+
+
+    document.getElementById("studentName").value = "";
+
+    document.getElementById("roll").value = "";
+
+
+    for(let i=0;i<subjects.length;i++){
+
+        document.getElementById("grade"+i)
+            .textContent = "-";
+
+        document.getElementById("grade"+i)
+            .className = "grade";
+
+        document.getElementById("point"+i)
+            .textContent = "-";
+    }
+
+
+    document.getElementById("totalMarks")
+        .textContent = "0";
+
+    document.getElementById("average")
+        .textContent = "0";
+
+    document.getElementById("gpa")
+        .textContent = "0.00";
+
+    document.getElementById("finalGrade")
+        .textContent = "-";
+
+    document.getElementById("finalGrade")
+        .className = "";
+
+    document.getElementById("resultStatus")
+        .textContent = "";
+
+    document.getElementById("error")
+        .style.display = "none";
+}
+
+
+// Enter key support
+document
+.querySelectorAll(".marks-input")
+.forEach(input=>{
+
+    input.addEventListener("input",function(){
+
+        if(this.value > 100){
+            this.value = 100;
+        }
+
+        if(this.value < 0){
+            this.value = 0;
+        }
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>
