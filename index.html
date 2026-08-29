@@ -7,470 +7,91 @@
 <title>বিদ্যালয় রেজাল্ট পোর্টাল</title>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700;800&display=swap');
 
-*{
-    box-sizing:border-box;
+* {
+    box-sizing: border-box;
 }
 
-body{
-    margin:0;
-    font-family:"Noto Sans Bengali",Arial,sans-serif;
-    background:linear-gradient(135deg,#eef7ff,#f8f0ff);
-    color:#222;
+body {
+    margin: 0;
+    font-family: "Noto Sans Bengali", sans-serif;
+    background:
+        radial-gradient(circle at top left, #dbeafe, transparent 35%),
+        radial-gradient(circle at bottom right, #ede9fe, transparent 35%),
+        #f4f7fb;
+    color: #172033;
 }
 
-.header{
-    background:linear-gradient(135deg,#075985,#2563eb);
-    color:white;
-    padding:35px 15px;
-    text-align:center;
-    border-radius:0 0 30px 30px;
-    box-shadow:0 8px 25px rgba(0,0,0,.15);
+/* Header */
+.header {
+    background: linear-gradient(135deg, #075985, #2563eb);
+    color: white;
+    text-align: center;
+    padding: 42px 18px 50px;
+    border-radius: 0 0 35px 35px;
+    box-shadow: 0 12px 30px rgba(15, 76, 129, .22);
 }
 
-.header h1{
-    margin:0;
-    font-size:30px;
+.header h1 {
+    margin: 0;
+    font-size: 30px;
+    font-weight: 800;
+    line-height: 1.5;
 }
 
-.header p{
-    margin:10px 0 0;
-    font-size:17px;
+.header .portal {
+    margin-top: 8px;
+    font-size: 18px;
+    font-weight: 500;
+    opacity: .95;
 }
 
-.container{
-    max-width:650px;
-    margin:25px auto;
-    padding:0 15px;
+.header .year {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 8px 20px;
+    background: rgba(255,255,255,.18);
+    border: 1px solid rgba(255,255,255,.35);
+    border-radius: 30px;
+    font-weight: 700;
 }
 
-.card{
-    background:white;
-    border-radius:20px;
-    padding:25px;
-    box-shadow:0 8px 30px rgba(0,0,0,.10);
-    margin-bottom:20px;
+/* Main */
+.container {
+    max-width: 720px;
+    margin: -25px auto 30px;
+    padding: 0 15px;
 }
 
-.card h2{
-    text-align:center;
-    margin-top:0;
-    color:#075985;
+.card {
+    background: rgba(255,255,255,.97);
+    border-radius: 22px;
+    padding: 27px;
+    margin-bottom: 22px;
+    box-shadow: 0 12px 35px rgba(15,23,42,.08);
+    border: 1px solid rgba(255,255,255,.8);
 }
 
-label{
-    display:block;
-    font-weight:bold;
-    margin-top:15px;
-    margin-bottom:6px;
+/* Search */
+.search-title {
+    text-align: center;
+    color: #075985;
+    margin: 0 0 24px;
+    font-size: 22px;
 }
 
-select,input{
-    width:100%;
-    padding:14px;
-    border:2px solid #e2e8f0;
-    border-radius:12px;
-    font-size:16px;
-    outline:none;
-    background:#f8fafc;
+.exam-badge {
+    text-align: center;
+    background: #eff6ff;
+    color: #1d4ed8;
+    padding: 10px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    font-weight: 700;
 }
 
-select:focus,
-input:focus{
-    border-color:#2563eb;
-}
-
-button{
-    width:100%;
-    margin-top:20px;
-    padding:15px;
-    border:0;
-    border-radius:12px;
-    background:linear-gradient(135deg,#2563eb,#075985);
-    color:white;
-    font-size:18px;
-    font-weight:bold;
-    cursor:pointer;
-    box-shadow:0 6px 15px rgba(37,99,235,.3);
-}
-
-button:active{
-    transform:scale(.98);
-}
-
-.result{
-    display:none;
-}
-
-.student-box{
-    text-align:center;
-    background:linear-gradient(135deg,#eff6ff,#f0f9ff);
-    padding:18px;
-    border-radius:15px;
-    margin-bottom:20px;
-}
-
-.student-box h3{
-    margin:5px 0;
-    color:#075985;
-    font-size:23px;
-}
-
-.info{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:10px;
-    margin-top:12px;
-}
-
-.info div{
-    background:white;
-    padding:10px;
-    border-radius:10px;
-    font-size:14px;
-}
-
-table{
-    width:100%;
-    border-collapse:collapse;
-    overflow:hidden;
-    border-radius:12px;
-}
-
-th{
-    background:#075985;
-    color:white;
-    padding:12px 6px;
-}
-
-td{
-    padding:11px 6px;
-    text-align:center;
-    border-bottom:1px solid #e5e7eb;
-}
-
-tr:nth-child(even){
-    background:#f8fafc;
-}
-
-.total{
-    margin-top:20px;
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:12px;
-}
-
-.total-box{
-    text-align:center;
-    padding:15px;
-    border-radius:14px;
-    background:#eff6ff;
-}
-
-.total-box strong{
-    display:block;
-    font-size:23px;
-    color:#075985;
-    margin-top:5px;
-}
-
-.grade{
-    text-align:center;
-    margin-top:15px;
-    padding:15px;
-    border-radius:14px;
-    background:#ecfdf5;
-    color:#047857;
-    font-size:20px;
-    font-weight:bold;
-}
-
-.error{
-    color:#dc2626;
-    text-align:center;
-    padding:15px;
-    background:#fef2f2;
-    border-radius:12px;
-}
-
-.footer{
-    text-align:center;
-    color:#64748b;
-    padding:25px;
-    font-size:14px;
-}
-
-@media(max-width:500px){
-
-    .header h1{
-        font-size:24px;
-    }
-
-    .card{
-        padding:18px;
-    }
-
-    th,td{
-        font-size:14px;
-    }
-
-}
-
-</style>
-</head>
-
-<body>
-
-<div class="header">
-
-    <h1>জমিলা খাতুন কে,জি<br>এন্ড হাই স্কুল</h1>
-
-    <p>🎓 বিদ্যালয় রেজাল্ট পোর্টাল</p>
-
-</div>
-
-
-<div class="container">
-
-    <div class="card">
-
-        <h2>দ্বিতীয় সাময়িক পরীক্ষা</h2>
-
-        <label>শ্রেণী নির্বাচন করুন</label>
-
-        <select id="class">
-            <option value="">-- শ্রেণী নির্বাচন করুন --</option>
-            <option value="প্রথম">প্রথম শ্রেণী</option>
-            <option value="দ্বিতীয়">দ্বিতীয় শ্রেণী</option>
-            <option value="তৃতীয়">তৃতীয় শ্রেণী</option>
-            <option value="চতুর্থ">চতুর্থ শ্রেণী</option>
-            <option value="পঞ্চম">পঞ্চম শ্রেণী</option>
-        </select>
-
-
-        <label>রোল নাম্বার</label>
-
-        <input
-            type="number"
-            id="roll"
-            placeholder="রোল নাম্বার লিখুন"
-        >
-
-
-        <button onclick="showResult()">
-            🔎 ফলাফল দেখুন
-        </button>
-
-    </div>
-
-
-    <div class="card result" id="result"></div>
-
-</div>
-
-
-<div class="footer">
-    © ২০২৬ জমিলা খাতুন কে,জি এন্ড হাই স্কুল
-</div>
-
-
-<script>
-
-const students = {
-
-    "দ্বিতীয়-1": {
-
-        name:"আলিফা আক্তার",
-
-        class:"দ্বিতীয়",
-
-        roll:"১",
-
-        subjects:[
-
-            ["বাংলা",99],
-            ["ব্যাকরণ",99],
-            ["ইংরেজি",99],
-            ["গ্রামার",99],
-            ["গণিত",99],
-            ["পরিবেশ পরিচিতি",99],
-            ["সাধারণ জ্ঞান",49],
-            ["ইসলাম শিক্ষা",99],
-            ["ওয়ার্ড বুক",49]
-
-        ]
-
-    }
-
-};
-
-
-function showResult(){
-
-    const selectedClass =
-        document.getElementById("class").value;
-
-    const roll =
-        document.getElementById("roll").value;
-
-    const result =
-        document.getElementById("result");
-
-
-    const key =
-        selectedClass + "-" + roll;
-
-
-    const student =
-        students[key];
-
-
-    result.style.display="block";
-
-
-    if(!student){
-
-        result.innerHTML=`
-
-            <div class="error">
-
-                ❌ এই শ্রেণী ও রোলের কোনো
-                ফলাফল পাওয়া যায়নি।
-
-            </div>
-
-        `;
-
-        return;
-
-    }
-
-
-    let total=0;
-
-    let rows="";
-
-
-    student.subjects.forEach(function(subject,index){
-
-        total += subject[1];
-
-        rows += `
-
-            <tr>
-
-                <td>${index+1}</td>
-
-                <td>${subject[0]}</td>
-
-                <td>${subject[1]}</td>
-
-            </tr>
-
-        `;
-
-    });
-
-
-    const average =
-        (total / student.subjects.length).toFixed(2);
-
-
-    let grade="A+";
-
-
-    if(average>=80){
-        grade="A+";
-    }
-    else if(average>=70){
-        grade="A";
-    }
-    else if(average>=60){
-        grade="A-";
-    }
-    else if(average>=50){
-        grade="B";
-    }
-    else if(average>=40){
-        grade="C";
-    }
-    else if(average>=33){
-        grade="D";
-    }
-    else{
-        grade="F";
-    }
-
-
-    result.innerHTML=`
-
-        <div class="student-box">
-
-            <h3>${student.name}</h3>
-
-            <div class="info">
-
-                <div>
-                    <b>শ্রেণী</b><br>
-                    ${student.class}
-                </div>
-
-                <div>
-                    <b>রোল</b><br>
-                    ${student.roll}
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <table>
-
-            <tr>
-                <th>ক্রম</th>
-                <th>বিষয়</th>
-                <th>প্রাপ্ত নম্বর</th>
-            </tr>
-
-            ${rows}
-
-        </table>
-
-
-        <div class="total">
-
-            <div class="total-box">
-
-                মোট নম্বর
-
-                <strong>${total}</strong>
-
-            </div>
-
-
-            <div class="total-box">
-
-                গড়
-
-                <strong>${average}</strong>
-
-            </div>
-
-        </div>
-
-
-        <div class="grade">
-
-            🏆 গ্রেড: ${grade}
-
-        </div>
-
-    `;
-
-}
-
-</script>
-
-</body>
-</html>
+label {
+    display: block;
+    font-weight: 700;
+    margin: 15px 0 
